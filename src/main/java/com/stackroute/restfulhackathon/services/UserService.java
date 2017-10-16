@@ -11,34 +11,33 @@ import com.stackroute.restfulhackathon.domain.Users;
 import com.stackroute.restfulhackathon.repositories.UserRepo;
 @Service
 public class UserService implements UserServiceDef{
-	@Autowired
-	UserRepo userdao;
+    @Autowired
+    UserRepo userdao;
 
-	public String AddnewUser(Users user) {
-		userdao.save(user);
-		return "User Sucessfully added";
-	}
+    public String AddnewUser(Users user) {
+        userdao.save(user);
+        return "User Sucessfully added";
+    }
 
-	public List<Users> getAllUsers() {
-		List<Users> data= new ArrayList<Users>();
-		data.addAll( (Collection<? extends Users>) userdao.findAll());
-		return data;
-	}
+    public List<Users> getAllUsers() {
+        List<Users> data= new ArrayList<Users>();
+        data.addAll( (Collection<? extends Users>) userdao.findAll());
+        return data;
+    }
 
-	public String deleteUser(int id) {
-		userdao.delete(id);
-		return null;
-	}
+    public String deleteUser(int id) {
+        userdao.delete(id);
+        return "user deleted sucessfully";
+    }
 
-	public String getUserById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Users getUserById(int id) {
+        return userdao.findOne(id);
+    }
 
 
-	public String updateUser(Users user, int id) {
-		userdao.save(user);
-		return null;
-	}
+    public String updateUser(Users user, int id) {
+        userdao.save(user);
+        return "User updated";
+    }
 
 }

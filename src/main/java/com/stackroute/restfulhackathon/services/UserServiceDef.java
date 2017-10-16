@@ -9,7 +9,7 @@ public interface UserServiceDef {
 	String AddnewUser(Users user);
 	List<Users> getAllUsers();
 	String deleteUser(int id);
-	String getUserById(int id);	
+	Users getUserById(int id);	
 	String updateUser(Users user,int id);
 
 
